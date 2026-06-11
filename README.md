@@ -112,35 +112,3 @@ BioScale uses **NHANES** (National Health and Nutrition Examination Survey) publ
 | `data/` | Shared artifacts (e.g. SHAP samples) | Selective |
 
 To download and prepare NHANES data, follow **[bioscale/backend/etl/README.md](bioscale/backend/etl/README.md)**.
-
-## Deployment
-
-### Frontend → Vercel
-
-| Setting | Value |
-|---------|-------|
-| **Project root** | `frontend/` |
-| **Build command** | `npm run build` |
-| **Output directory** | `.next` (Next.js default) |
-| **Environment variable** | `NEXT_PUBLIC_API_BASE_URL` = your deployed API origin (no trailing slash) |
-
-Example: `NEXT_PUBLIC_API_BASE_URL=https://your-api.onrender.com`
-
-### Backend → Render / Fly.io
-
-| Setting | Value |
-|---------|-------|
-| **App root / working directory** | `bioscale/` |
-| **Install** | `pip install -r ../requirements.txt` (or use `backend/Dockerfile` at repo root) |
-| **Start command** | `uvicorn bioscale.api.main:app --host 0.0.0.0 --port 8000` |
-| **Environment** | `PYTHONPATH=src`, `MODEL_VERSION=v1.0.0` (or your version) |
-
-Ensure **CORS** allows your Vercel frontend origin. The API includes CORS middleware; restrict `allow_origins` to your production domain instead of `*` before going live.
-
-### Docker
-
-The root `backend/Dockerfile` builds a slim image with `PYTHONPATH=/app/src` and starts `bioscale.api.main:app` on port 8000.
-
-## License
-
-See repository license file if present; otherwise treat as research/academic use pending your project's license choice.
