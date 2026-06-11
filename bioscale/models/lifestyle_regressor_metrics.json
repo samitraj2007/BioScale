@@ -1,0 +1,15 @@
+{
+  "test_mae": 4.300534489787273,
+  "test_rmse": 6.374081460329343,
+  "test_r2": 0.19906206711607322,
+  "best_val_mae": 4.193258759943363,
+  "best_hyperparameters": {
+    "learning_rate": 0.04345454109729477,
+    "max_depth": 5,
+    "n_estimators": 325,
+    "min_child_weight": 1.1277223729341883,
+    "subsample": 0.7168578594140873,
+    "colsample_bytree": 0.7465447373174767,
+    "random_state": 42
+  }
+}
