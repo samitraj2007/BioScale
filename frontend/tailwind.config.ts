@@ -1,41 +1,48 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Material You (Material Design 3) light tonal palette.
+        // Healthcare palette — cream surfaces, green primary, teal secondary, amber tertiary.
         surface: {
-          DEFAULT: "#FFFBFE",
-          container: "#F3EDF7",
-          "container-low": "#E7E0EC",
+          DEFAULT: "#F5F3EB",
+          container: "#F5F3EB",
+          "container-low": "#F0EDE4",
         },
-        "on-surface": "#1C1B1F",
-        "on-surface-variant": "#49454F",
+        "on-surface": "#1F2933",
+        "on-surface-variant": "#5B6470",
         primary: {
-          DEFAULT: "#6750A4",
-          container: "#EADDFF",
+          DEFAULT: "#1B6B4A",
+          container: "#E8F5EE",
         },
         "on-primary": "#FFFFFF",
-        "on-primary-container": "#21005D",
+        "on-primary-container": "#14532D",
         secondary: {
-          DEFAULT: "#625B71",
-          container: "#E8DEF8",
+          DEFAULT: "#0F766E",
+          container: "#E6F4F2",
         },
-        "on-secondary-container": "#1D192B",
+        "on-secondary-container": "#134E4A",
         tertiary: {
-          DEFAULT: "#7D5260",
-          container: "#FFD8E4",
+          DEFAULT: "#D97706",
+          container: "#FFF7ED",
         },
-        "on-tertiary-container": "#31111D",
-        outline: "#79747E",
-        "outline-variant": "#CAC4D0",
+        "on-tertiary-container": "#92400E",
+        outline: "#A8A29E",
+        "outline-variant": "#E5DFD0",
         error: {
           DEFAULT: "#B3261E",
           container: "#F9DEDC",
         },
         "on-error-container": "#410E0B",
+        // Optional aliases (add-only; existing references unchanged)
+        brand: colors.emerald,
+        "accent-cool": colors.teal,
+        "accent-warm": colors.amber,
+        "acceleration-positive": "#059669",
+        "acceleration-negative": "#D97706",
       },
       fontFamily: {
         sans: ["var(--font-roboto)", "ui-sans-serif", "system-ui", "sans-serif"],

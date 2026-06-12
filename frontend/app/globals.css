@@ -4,7 +4,7 @@
 
 :root {
   color-scheme: light;
-  --md-primary: #6750a4;
+  --md-primary: #1b6b4a;
 }
 
 html {
@@ -15,7 +15,7 @@ html {
 
 @layer base {
   body {
-    @apply bg-surface text-on-surface;
+    @apply bg-[#F5F3EB] text-[#1F2933];
   }
 
   h1,
@@ -29,9 +29,9 @@ html {
 /* Atmospheric, tonal page background reminiscent of Material You surfaces. */
 .page-bg {
   background-image:
-    radial-gradient(48rem 48rem at 88% -8%, rgba(103, 80, 164, 0.10), transparent 60%),
-    radial-gradient(42rem 42rem at -6% 4%, rgba(125, 82, 96, 0.08), transparent 58%),
-    radial-gradient(60rem 40rem at 50% 120%, rgba(98, 91, 113, 0.06), transparent 60%);
+    radial-gradient(48rem 48rem at 88% -8%, rgba(27, 107, 74, 0.08), transparent 60%),
+    radial-gradient(42rem 42rem at -6% 4%, rgba(15, 118, 110, 0.06), transparent 58%),
+    radial-gradient(60rem 40rem at 50% 120%, rgba(245, 243, 235, 0.9), transparent 60%);
 }
 
 @layer components {
@@ -45,7 +45,7 @@ html {
 
   /* ---- Surfaces / cards ---- */
   .md-card {
-    @apply rounded-md-lg bg-surface-container text-on-surface shadow-md-1;
+    @apply rounded-md-lg border border-[rgba(15,118,110,0.15)] bg-white text-on-surface shadow-md-1;
   }
 
   .md-card-low {
@@ -53,7 +53,7 @@ html {
   }
 
   .md-card-interactive {
-    @apply transition-all duration-300 ease-emphasized hover:shadow-md-3 motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.02];
+    @apply transition-all duration-300 ease-emphasized hover:shadow-[0_0_0_1px_rgba(15,118,110,0.25),0_10px_30px_rgba(15,118,110,0.12)] motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.02];
   }
 
   /* ---- State layer (Material You opacity overlay) ---- */
@@ -66,13 +66,13 @@ html {
     @apply relative isolate inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-label-lg transition-all duration-300 ease-emphasized motion-safe:active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:pointer-events-none disabled:opacity-60;
   }
   .btn-filled {
-    @apply btn-base bg-primary text-on-primary shadow-md-1 hover:shadow-md-2;
+    @apply btn-base bg-primary text-on-primary shadow-md-1 hover:bg-[#16603B] hover:shadow-md-2;
   }
   .btn-tonal {
     @apply btn-base bg-secondary-container text-on-secondary-container shadow-md-1 hover:shadow-md-2;
   }
   .btn-text {
-    @apply btn-base px-5 text-primary;
+    @apply btn-base px-5 text-primary hover:text-secondary;
   }
 
   /* Shared opacity-based state-layer overlay for all interactive surfaces.

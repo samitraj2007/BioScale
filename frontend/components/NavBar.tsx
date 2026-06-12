@@ -1,7 +1,14 @@
 "use client";
 
+import { Pinyon_Script } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const pinyonScript = Pinyon_Script({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 const links = [
   { href: "/", label: "Overview" },
@@ -20,20 +27,21 @@ export default function NavBar() {
   const pathname = usePathname() ?? "/";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-outline-variant/40 bg-surface/70 backdrop-blur-xl">
-      <nav className="container-content flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2.5">
+    <header className="sticky top-0 z-40 border-b border-outline-variant/25 bg-[rgba(245,243,235,0.72)] shadow-[0_1px_0_rgba(31,41,51,0.04)] backdrop-blur-[8px]">
+      <nav className="container-content flex h-16 items-center justify-between gap-6 sm:gap-8">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center py-1 transition-opacity duration-200 ease-in-out hover:opacity-90"
+        >
           <span
-            aria-hidden
-            className="flex h-9 w-9 items-center justify-center rounded-md-md bg-primary text-title-md font-medium text-on-primary shadow-md-1 transition-transform duration-300 ease-emphasized group-hover:scale-105"
+            className={`${pinyonScript.className} translate-y-px text-[2.25rem] leading-none tracking-tight text-on-primary-container`}
           >
-            B
+            Bioscale
           </span>
-          <span className="text-title-md text-on-surface">BioScale</span>
         </Link>
 
-        <div className="flex items-center gap-1 sm:gap-2">
-          <ul className="flex items-center gap-1">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <ul className="flex items-center gap-0.5 sm:gap-1">
             {links.map((link) => {
               const active = isActive(pathname, link.href);
               return (
@@ -42,10 +50,10 @@ export default function NavBar() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={[
-                      "state-layer rounded-full px-3 py-2 text-label-lg transition-colors duration-200 sm:px-4",
+                      "inline-flex items-center border-b-2 px-3 py-2 text-label-lg transition-[color,border-color] duration-200 ease-in-out sm:px-4",
                       active
-                        ? "bg-secondary-container text-on-secondary-container"
-                        : "text-on-surface-variant hover:text-on-surface",
+                        ? "border-primary font-medium text-primary"
+                        : "border-transparent text-on-surface-variant hover:border-primary/30 hover:text-primary",
                     ].join(" ")}
                   >
                     {link.label}
@@ -57,7 +65,7 @@ export default function NavBar() {
 
           <Link
             href="/tool"
-            className="btn-filled hidden px-5 py-2.5 sm:inline-flex"
+            className="ml-1 hidden items-center justify-center rounded-full bg-primary px-5 py-2 text-label-md font-medium text-on-primary shadow-sm transition-all duration-200 ease-in-out hover:bg-[#16603B] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-safe:active:scale-[0.98] sm:ml-2 sm:inline-flex"
           >
             Open Tool
           </Link>
